@@ -8,11 +8,13 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material-module';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RentComponent
+    RentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
