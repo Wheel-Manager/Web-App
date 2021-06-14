@@ -1,22 +1,23 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {Brand} from "../model/brand";
+import {Comment} from "../model/comment";
 import {catchError, retry} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
-  basePath = 'http://localhost:8080/api/brands'
+export class CommentService {
+
+  basePath = 'http://localhost:8080/api/comments'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
 
-  constructor(private http: HttpClient) {
-  }
+
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {
@@ -27,28 +28,29 @@ export class BrandService {
     return throwError('Something happened with request, please try again later.');
   }
 
-  createBrand(item: any): Observable<Brand> {
-    return this.http.post<Brand>(this.basePath, JSON.stringify(item), this.httpOptions)
+  createComment(item: any): Observable<Comment> {
+    return this.http.post<Comment>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getBrandById(id: number): Observable<Brand> {
-    return this.http.get<Brand>(`${this.basePath}/${id}`, this.httpOptions)
+  getCommentById(id: number): Observable<Comment> {
+    return this.http.get<Comment>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getBrandList(): Observable<Brand> {
-    return this.http.get<Brand>(this.basePath, this.httpOptions)
+  getCommentList(): Observable<Comment> {
+    return this.http.get<Comment>(this.basePath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  updateBrand(id: number, item: any): Observable<Brand> {
-    return this.http.put<Brand>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  updateComment(id: number, item: any): Observable<Comment> {
+    return this.http.put<Comment>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  deleteBrand(id: number): Observable<any> {
-    return this.http.delete<Brand>(`${this.basePath}/${id}`, this.httpOptions)
+  deleteComment(id: number): Observable<any> {
+    return this.http.delete<Comment>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
 }

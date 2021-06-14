@@ -1,22 +1,22 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {Brand} from "../model/brand";
+import {UserAddress} from "../model/user-address";
 import {catchError, retry} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
-  basePath = 'http://localhost:8080/api/brands'
+export class UserAddressService {
+
+  basePath = 'http://localhost:8080/api/user_address'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {
@@ -27,28 +27,29 @@ export class BrandService {
     return throwError('Something happened with request, please try again later.');
   }
 
-  createBrand(item: any): Observable<Brand> {
-    return this.http.post<Brand>(this.basePath, JSON.stringify(item), this.httpOptions)
+  createUserAddress(item: any): Observable<UserAddress> {
+    return this.http.post<UserAddress>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getBrandById(id: number): Observable<Brand> {
-    return this.http.get<Brand>(`${this.basePath}/${id}`, this.httpOptions)
+  getUserAddressById(id: number): Observable<UserAddress> {
+    return this.http.get<UserAddress>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getBrandList(): Observable<Brand> {
-    return this.http.get<Brand>(this.basePath, this.httpOptions)
+  getUserAddressList(): Observable<UserAddress> {
+    return this.http.get<UserAddress>(this.basePath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  updateBrand(id: number, item: any): Observable<Brand> {
-    return this.http.put<Brand>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  updateUserAddress(id: number, item: any): Observable<UserAddress> {
+    return this.http.put<UserAddress>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  deleteBrand(id: number): Observable<any> {
-    return this.http.delete<Brand>(`${this.basePath}/${id}`, this.httpOptions)
+  deleteUserAddress(id: number): Observable<any> {
+    return this.http.delete<UserAddress>(`${this.basePath}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
 }
