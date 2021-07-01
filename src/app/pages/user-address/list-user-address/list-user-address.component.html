@@ -1,0 +1,45 @@
+<br />
+<h2 class="text-center text-uppercase">List of User Address</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Selected</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Address Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let userAddress of userAddresses">
+        <tr>
+          <th scope="row">{{ userAddress.id }}</th>
+          <td>{{ userAddress.selected }}</td>
+          <td>{{ userAddress.customer.name }}</td>
+          <td>{{ userAddress.address.description }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteUserAddress(userAddress)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateUserAddress(userAddress)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

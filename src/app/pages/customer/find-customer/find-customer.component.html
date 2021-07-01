@@ -1,0 +1,86 @@
+<br />
+<h2 class="text-center text-uppercase">Search Customers</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchCustomerById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Customer by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="customer">
+              {{ customer.id }} - {{ customer.username }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchCustomerByName()">
+        <input
+          type="text"
+          class="form-control"
+          id="customerName"
+          name="customerName"
+          required
+          [(ngModel)]="customerName"
+          placeholder="Search Brand by Customer Name"
+        />
+        <label class="form-control-plaintext" for="customerName">
+          Customer Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let customer of customers">
+              <h4>{{ customer.id }} - {{ customer.name }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchCustomerByUsername()">
+        <input
+          type="text"
+          class="form-control"
+          id="customerUsername"
+          name="customerUsername"
+          required
+          [(ngModel)]="customerUsername"
+          placeholder="Search Brand by Customer Username"
+        />
+        <label class="form-control-plaintext" for="customerUsername">
+          Customer Username :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let customer of customers">
+              <h4>{{ customer.id }} - {{ customer.username }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

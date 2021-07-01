@@ -1,0 +1,59 @@
+<br />
+<h2 class="text-center text-uppercase">Search Vehicle</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchVehicleById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Vehicle by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="vehicle">
+              {{ vehicle.id }} - {{ vehicle.vehicleName }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchVehicleByName()">
+        <input
+          type="text"
+          class="form-control"
+          id="vehicleName"
+          name="vehicleName"
+          required
+          [(ngModel)]="vehicleName"
+          placeholder="Search Brand by Vehicle Name"
+        />
+        <label class="form-control-plaintext" for="vehicleName">
+          Vehicle Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let vehicle of vehicles">
+              <h4>{{ vehicle.id }} - {{ vehicle.vehicleName }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

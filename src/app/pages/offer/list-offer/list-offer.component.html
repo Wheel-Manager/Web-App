@@ -1,0 +1,58 @@
+<br />
+<h2 class="text-center text-uppercase">List of Offers</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Offer Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image Url</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Offer Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let offer of offers">
+        <tr>
+          <th scope="row">{{ offer.id }}</th>
+          <td>{{ offer.offerName }}</td>
+          <td>{{ offer.description }}</td>
+          <td>
+            <img
+              src="{{ offer.imageUrl }}"
+              width="100px"
+              height="100px"
+              class="rounded mx-auto d-block img-thumbnail thumbnail"
+            />
+          </td>
+          <td>{{ offer.startDate }}</td>
+          <td>{{ offer.endDate }}</td>
+          <td>{{ offer.offerPrice }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteOffer(offer)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateOffer(offer)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

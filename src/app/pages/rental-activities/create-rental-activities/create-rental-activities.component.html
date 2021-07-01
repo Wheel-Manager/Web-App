@@ -1,0 +1,115 @@
+<br />
+<h2 class="text-center text-uppercase">Registration of Rental Activities</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="insertRentalActivities()">
+      <!--*************** ATTRIBUTE 1 ***************-->
+      <div>
+        <input
+          type="hidden"
+          id="rentalActivityId"
+          name="rentalActivityId"
+          required
+          [(ngModel)]="rentalActivity.id"
+        />
+      </div>
+      <!--*************** END ATTRIBUTE 1 ***************-->
+      <!--*************** ATTRIBUTE 2 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="price" class="col-sm-2 col-form-label">
+          Price of Rent :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            placeholder="Price of Rent"
+            required
+            [(ngModel)]="rentalActivity.price"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 2 ***************-->
+      <!--*************** ATTRIBUTE 3 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="commission" class="col-sm-2 col-form-label">
+          Commission of Rent :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="commission"
+            name="commission"
+            placeholder="Commission of Rent"
+            required
+            [(ngModel)]="rentalActivity.commission"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 3 ***************-->
+      <!--*************** ATTRIBUTE 4 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="insurancePrice" class="col-sm-2 col-form-label">
+          Insurance Price of Rent :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="insurancePrice"
+            name="insurancePrice"
+            placeholder="Insurance Price of Rent"
+            required
+            [(ngModel)]="rentalActivity.insurancePrice"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 4 ***************-->
+      <!--*************** ATTRIBUTE 5 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="reservationId" class="col-sm-2 col-form-label">
+          Reservation Id :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="reservationId"
+            name="reservationId"
+            placeholder="Reservation Id"
+            required
+            [(ngModel)]="rentalActivity.reservation.id"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 5 ***************-->
+      <!--*************** ATTRIBUTE 6 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="offerId" class="col-sm-2 col-form-label">
+          Offer Id :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="offerId"
+            name="offerId"
+            placeholder="Offer Id"
+            required
+            [(ngModel)]="rentalActivity.offer.id"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 6 ***************-->
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-2 mx-auto">
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>
