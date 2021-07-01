@@ -1,0 +1,83 @@
+<br />
+<h2 class="text-center text-uppercase">Search Reservation</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchReservationById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Reservation by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="reservation">
+              {{ reservation.id }} - {{ reservation.reservationPrice }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form (ngSubmit)="searchReservationBetweenDates()">
+        <div class="row g-3">
+          <div class="col-md-6 form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="startDate"
+              name="startDate"
+              required
+              [(ngModel)]="startDate"
+              placeholder="Search Reservation in Start Date"
+            />
+            <label class="form-control-plaintext" for="startDate">
+              Start Date :
+            </label>
+          </div>
+          <div class="col-md-6 form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="endDate"
+              name="endDate"
+              required
+              [(ngModel)]="endDate"
+              placeholder="Search Reservation in End Date"
+            />
+            <label class="form-control-plaintext" for="endDate">
+              End Date :
+            </label>
+          </div>
+          <div class="d-grid col-2 mx-auto">
+            <button type="submit" class="btn btn-outline-success">
+              Search
+            </button>
+          </div>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item"
+              *ngFor="let reservation of reservations"
+            >
+              <h4>{{ reservation.id }} - {{ reservation.reservationPrice }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

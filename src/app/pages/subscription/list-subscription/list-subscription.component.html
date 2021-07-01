@@ -1,0 +1,47 @@
+<br />
+<h2 class="text-center text-uppercase">List of Subscription</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Description</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">Subscription Price</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let subscription of subscriptions">
+        <tr>
+          <th scope="row">{{ subscription.id }}</th>
+          <td>{{ subscription.description }}</td>
+          <td>{{ subscription.startDate }}</td>
+          <td>{{ subscription.subscriptionPrice }}</td>
+          <td>{{ subscription.customer.name }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteSubscription(subscription)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateSubscription(subscription)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

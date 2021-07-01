@@ -1,0 +1,59 @@
+<br />
+<h2 class="text-center text-uppercase">Search Offers</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchOfferById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Offer by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="offer">
+              {{ offer.id }} - {{ offer.offerName }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchOfferByName()">
+        <input
+          type="text"
+          class="form-control"
+          id="offerName"
+          name="offerName"
+          required
+          [(ngModel)]="offerName"
+          placeholder="Search Brand by Offer Name"
+        />
+        <label class="form-control-plaintext" for="offerName">
+          Offer Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let offer of offers">
+              <h4>{{ offer.id }} - {{ offer.offerName }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

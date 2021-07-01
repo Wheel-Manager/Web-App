@@ -1,0 +1,58 @@
+<br />
+<h2 class="text-center text-uppercase">Search Brands</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchBrandById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Brand by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="brand">
+              {{ brand.id }} - {{ brand.brandName }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchBrandByBrandName()">
+        <input
+          type="text"
+          class="form-control"
+          id="brandName"
+          name="brandName"
+          required
+          [(ngModel)]="brandName"
+          placeholder="Search Brand by brandName"
+        />
+        <label class="form-control-plaintext" for="brandName">
+          Brand Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let brand of brands">
+              <h4>{{ brand.id }} - {{ brand.brandName }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

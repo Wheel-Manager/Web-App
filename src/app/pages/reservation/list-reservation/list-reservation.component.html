@@ -1,0 +1,49 @@
+<br />
+<h2 class="text-center text-uppercase">List of Reservation</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Reservation Price</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Vehicle Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let reservation of reservations">
+        <tr>
+          <th scope="row">{{ reservation.id }}</th>
+          <td>{{ reservation.startDate }}</td>
+          <td>{{ reservation.endDate }}</td>
+          <td>{{ reservation.reservationPrice }}</td>
+          <td>{{ reservation.customer.name }}</td>
+          <td>{{ reservation.vehicle.vehicleName }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteCustomer(reservation)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateCustomer(reservation)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

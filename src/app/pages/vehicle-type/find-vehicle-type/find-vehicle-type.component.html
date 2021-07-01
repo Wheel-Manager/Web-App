@@ -1,0 +1,64 @@
+<br />
+<h2 class="text-center text-uppercase">Search Vehicle Type</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchVehicleTypeById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Vehicle Type by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="vehicleType">
+              {{ vehicleType.id }} - {{ vehicleType.typeName }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form
+        class="form-floating"
+        (ngSubmit)="searchVehicleTypeByVehicleTypeName()"
+      >
+        <input
+          type="text"
+          class="form-control"
+          id="typeName"
+          name="typeName"
+          required
+          [(ngModel)]="typeName"
+          placeholder="Search Brand by typeName"
+        />
+        <label class="form-control-plaintext" for="typeName">
+          Vehicle Type Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item"
+              *ngFor="let vehicleType of vehicleTypes"
+            >
+              <h4>{{ vehicleType.id }} - {{ vehicleType.typeName }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
