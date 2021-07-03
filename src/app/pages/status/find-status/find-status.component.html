@@ -1,0 +1,58 @@
+<br />
+<h2 class="text-center text-uppercase">Search Status</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchStatusById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Status by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="status">
+              {{ status.id }} - {{ status.statusName }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchStatusByStatusName()">
+        <input
+          type="text"
+          class="form-control"
+          id="statusName"
+          name="statusName"
+          required
+          [(ngModel)]="statusName"
+          placeholder="Search Brand by statusName"
+        />
+        <label class="form-control-plaintext" for="statusName">
+          Status Name :
+        </label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let status of statuses">
+              <h4>{{ status.id }} - {{ status.statusName }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

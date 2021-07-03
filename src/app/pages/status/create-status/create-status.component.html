@@ -1,0 +1,37 @@
+<br />
+<h2 class="text-center text-uppercase">Registration of Status</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="insertStatus()">
+      <div>
+        <input
+          type="hidden"
+          id="StatusId"
+          name="StatusId"
+          required
+          [(ngModel)]="status.id"
+        />
+      </div>
+      <div class="form-group mb-3 row">
+        <label for="statusName" class="col-sm-2 col-form-label">
+          Status Name :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="statusName"
+            name="statusName"
+            placeholder="StatusName"
+            required
+            [(ngModel)]="status.statusName"
+          />
+        </div>
+      </div>
+      <div class="d-grid col-2 mx-auto">
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

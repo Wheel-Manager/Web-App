@@ -1,0 +1,62 @@
+<br />
+<h2 class="text-center text-uppercase">List of Customer</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Image Url</th>
+        <th scope="col">Dni</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let customer of customers">
+        <tr>
+          <th scope="row">{{ customer.id }}</th>
+          <td>{{ customer.username }}</td>
+          <td>{{ customer.password }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>
+            <img
+              src="{{ customer.imageUrl }}"
+              class="rounded mx-auto d-block img-thumbnail thumbnail"
+            />
+          </td>
+          <td>{{ customer.dni }}</td>
+          <td>{{ customer.gender }}</td>
+          <td>{{ customer.birthDay }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteCustomer(customer)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateCustomer(customer)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,179 @@
+<br />
+<h2 class="text-center text-uppercase">Registration of Customer</h2>
+<br />
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="insertCustomer()">
+      <!--*************** ATTRIBUTE 1 ***************-->
+      <div>
+        <input
+          type="hidden"
+          id="CustomerId"
+          name="CustomerId"
+          required
+          [(ngModel)]="customer.id"
+        />
+      </div>
+      <!--*************** END ATTRIBUTE 1 ***************-->
+      <!--*************** ATTRIBUTE 2 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="userName" class="col-sm-2 col-form-label">
+          Username :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="username"
+            required
+            [(ngModel)]="customer.username"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 2 ***************-->
+      <!--*************** ATTRIBUTE 3 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="password" class="col-sm-2 col-form-label">
+          Password :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+            [(ngModel)]="customer.password"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 3 ***************-->
+      <!--*************** ATTRIBUTE 4 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="email" class="col-sm-2 col-form-label"> Email : </label>
+        <div class="col-sm-10">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+            [(ngModel)]="customer.email"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 4 ***************-->
+      <!--*************** ATTRIBUTE 5 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="name" class="col-sm-2 col-form-label"> Name : </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+            [(ngModel)]="customer.name"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 5 ***************-->
+      <!--*************** ATTRIBUTE 6 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="lastName" class="col-sm-2 col-form-label">
+          Last Name :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            required
+            [(ngModel)]="customer.lastName"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 6 ***************-->
+      <!--*************** ATTRIBUTE 7 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="imageUrl" class="col-sm-2 col-form-label">
+          Image Url :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            placeholder="Image Url"
+            required
+            [(ngModel)]="customer.imageUrl"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 7 ***************-->
+      <!--*************** ATTRIBUTE 8 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="dni" class="col-sm-2 col-form-label"> DNI : </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="dni"
+            name="dni"
+            placeholder="DNI"
+            required
+            [(ngModel)]="customer.dni"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 8 ***************-->
+      <!--*************** ATTRIBUTE 9 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="gender" class="col-sm-2 col-form-label"> Genero : </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="gender"
+            name="gender"
+            placeholder="Gender"
+            required
+            [(ngModel)]="customer.gender"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** ATTRIBUTE 9 ***************-->
+      <div class="form-group mb-3 row">
+        <label for="birthDay" class="col-sm-2 col-form-label">
+          Fecha de Nacimiento :
+        </label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="birthDay"
+            name="birthDay"
+            placeholder="Birth Day"
+            required
+            [(ngModel)]="customer.birthDay"
+          />
+        </div>
+      </div>
+      <!--*************** END ATTRIBUTE 9 ***************-->
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-2 mx-auto">
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>

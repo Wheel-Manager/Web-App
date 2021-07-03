@@ -1,0 +1,79 @@
+<br />
+<h2 class="text-center text-uppercase">Search Address</h2>
+<br />
+<div class="container">
+  <div class="row g-2">
+    <div class="col-md">
+      <form class="form-floating" (ngSubmit)="searchAddressesById()">
+        <input
+          type="number"
+          class="form-control"
+          id="id"
+          name="id"
+          required
+          [(ngModel)]="id"
+          placeholder="Search Vehicle by Id"
+        />
+        <label class="form-control-plaintext" for="id">Id :</label>
+        <div class="d-grid col-2 mx-auto">
+          <button type="submit" class="btn btn-outline-success">Search</button>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngIf="address">
+              {{ address.id }} - {{ address.description }}
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+    <div class="col-md">
+      <form (ngSubmit)="searchAddressesByLongitudeAndLatitude()">
+        <div class="row g-3">
+          <div class="col-md-6 form-floating">
+            <input
+              type="number"
+              class="form-control"
+              id="longitude"
+              name="longitude"
+              required
+              [(ngModel)]="longitude"
+              placeholder="Search Address By Longitude"
+            />
+            <label class="form-control-plaintext" for="longitude">
+              Longitude :
+            </label>
+          </div>
+          <div class="col-md-6 form-floating">
+            <input
+              type="number"
+              class="form-control"
+              id="latitude"
+              name="latitude"
+              required
+              [(ngModel)]="latitude"
+              placeholder="Search Address By Latitude"
+            />
+            <label class="form-control-plaintext" for="latitude">
+              Latitude :
+            </label>
+          </div>
+          <div class="d-grid col-2 mx-auto">
+            <button type="submit" class="btn btn-outline-success">
+              Search
+            </button>
+          </div>
+        </div>
+        <div class="card mx-auto" style="width: 18rem">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let address of addresses">
+              <h4>{{ address.id }} - {{ address.description }}</h4>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <!-- SEPARADOR -->
+  </div>
+</div>

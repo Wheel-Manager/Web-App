@@ -1,0 +1,51 @@
+<br />
+<h2 class="text-center text-uppercase">List of Rental Activities</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Price</th>
+        <th scope="col">Commission</th>
+        <th scope="col">Insurance Price</th>
+        <th scope="col">Reservation Start Date</th>
+        <th scope="col">Reservation End Date</th>
+        <th scope="col">Offer Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let rentalActivity of rentalActivities">
+        <tr>
+          <th scope="row">{{ rentalActivity.id }}</th>
+          <td>{{ rentalActivity.price }}</td>
+          <td>{{ rentalActivity.commission }}</td>
+          <td>{{ rentalActivity.insurancePrice }}</td>
+          <td>{{ rentalActivity.reservation.startDate }}</td>
+          <td>{{ rentalActivity.reservation.endDate }}</td>
+          <td>{{ rentalActivity.offer.offerName }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteRentalActivities(rentalActivity)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                (click)="updateRentalActivities(rentalActivity)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
